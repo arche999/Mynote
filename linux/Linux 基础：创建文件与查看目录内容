@@ -1,0 +1,101 @@
+Linux 基础：创建文件与查看目录内容
+
+1. 切换目录
+
+cd /home/labex/project
+
+进入工作目录 /home/labex/project。
+
+2. 创建文件
+(1) 空文件
+
+touch file1.txt
+
+解释：创建一个空文件。如果已存在，只更新修改时间。 示例输出：无输出（成功时 Linux 默认静默）。
+
+(2) 写入文本并创建文件
+
+echo "Hello, Linux" > file2.txt
+
+解释：echo 打印文本，> 重定向到文件。
+* 如果文件不存在 → 创建并写入。
+* 如果文件存在 → 覆盖内容。 示例：
+
+cat file2.txt
+输出：
+
+Hello, Linux
+
+(3) 创建隐藏文件
+
+echo "Hidden file" > .hiddenfile
+
+解释：名字以 . 开头就是隐藏文件。普通 ls 看不到。 示例：
+
+ls
+看不到 .hiddenfile。
+
+ls -a
+能看到：
+
+.  ..  .hiddenfile  file1.txt  file2.txt  testdir
+
+3. 创建目录
+
+mkdir testdir
+
+解释：新建目录。 示例输出：无输出。
+
+4. 查看目录内容
+(1) 普通查看
+
+ls
+输出示例：
+
+file1.txt  file2.txt  testdir
+
+(2) 长格式查看
+
+ls -l
+
+输出示例：
+
+-rw-r--r-- 1 user user   0 Sep 28 21:10 file1.txt
+-rw-r--r-- 1 user user 13 Sep 28 21:11 file2.txt
+drwxr-xr-x 2 user user  40 Sep 28 21:12 testdir
+
+含义：
+* 第1列：权限
+* 第2列：硬链接数
+* 第3列：所有者
+* 第4列：用户组
+* 第5列：大小（字节）
+* 第6-8列：修改时间
+* 最后一列：文件名
+
+(3) 显示隐藏文件
+
+ls -a
+输出示例：
+
+.  ..  .hiddenfile  file1.txt  file2.txt  testdir
+
+(4) 组合：长格式 + 显示隐藏
+
+ls -la
+输出示例：
+
+drwxr-xr-x 2 user user   80 Sep 28 21:15 .
+drwxr-xr-x 3 user user   60 Sep 28 20:55 ..
+-rw-r--r-- 1 user user    0 Sep 28 21:10 file1.txt
+-rw-r--r-- 1 user user   13 Sep 28 21:11 file2.txt
+-rw-r--r-- 1 user user   12 Sep 28 21:11 .hiddenfile
+drwxr-xr-x 2 user user   40 Sep 28 21:12 testdir
+
+(5) 查看特定目录
+
+ls -l testdir
+
+输出示例（空目录时）：
+
+total 0
