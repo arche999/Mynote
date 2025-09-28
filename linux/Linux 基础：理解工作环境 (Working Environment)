@@ -1,0 +1,45 @@
+Linux 基础：理解工作环境 (Working Environment)
+1. 查看当前位置
+pwd
+
+解释：pwd = print working directory。显示你当前所在的路径。
+示例输出：
+
+/home/labex/project
+
+2. 查看主目录路径
+echo ~
+
+
+解释：~ 代表当前用户的主目录 (home directory)。
+示例输出：
+
+/home/labex
+
+3. 查看当前目录内容
+ls
+
+
+解释：列出当前目录 /home/labex/project 中的文件和文件夹。
+示例输出：
+
+file1.txt  file2.txt  testdir
+
+4. 查看主目录内容
+ls ~
+
+
+解释：列出主目录 /home/labex 的内容，可能和当前目录不同。
+示例输出（例子，实际可能不同）：
+
+project  Downloads  Documents
+
+核心理解
+
+当前工作目录：你“现在”所在的位置，用 pwd 查看。
+
+主目录 (~)：每个用户的默认家目录，用 echo ~ 查看。
+
+ls → 查看当前目录内容。
+
+ls ~ → 查看主目录内容。
